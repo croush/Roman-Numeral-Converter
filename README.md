@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-##Roman Numeral Conversion
+Roman Numeral Conversion
 
 This is a play project to explore ReactJS further, and to complete the TDD Code Kata. An effort was made to test react components as well as functions with Jest and Enzyme; more work is needed to complete this. Functions (toRoman and toDecimal) were written and tested with Mocha and Chai. The tests were finally moved and added to the repo in the third commit.
 
