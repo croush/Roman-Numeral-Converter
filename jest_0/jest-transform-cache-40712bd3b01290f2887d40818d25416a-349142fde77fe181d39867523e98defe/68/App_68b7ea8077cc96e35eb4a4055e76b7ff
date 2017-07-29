@@ -1,0 +1,107 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });exports.RomanToDecimal = exports.DecimalToRoman = undefined;var _jsxFileName = '/Users/claireroush/Code/roman-numeral-converter/src/App.js';var _react = require('react');var _react2 = _interopRequireDefault(_react);
+var _logo = require('./logo.svg');var _logo2 = _interopRequireDefault(_logo);
+require('./App.css');
+require('./');
+var _reactDom = require('react-dom');var _reactDom2 = _interopRequireDefault(_reactDom);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+class DecimalToRoman extends _react.Component {
+  constructor(props) {
+    super(props);this.
+
+
+
+    handleInput = x => {
+      debugger;
+      this.setState({ input: x.target.value });
+    };this.
+
+    toRoman = decimal => {
+      debugger;
+      var dic = { M: 1000, CM: 900, D: 500, CD: 400, C: 100, XC: 90, L: 50, XL: 40, X: 10, IX: 9, V: 5, IV: 4, I: 1 };
+      var i = '';
+      var roman = '';
+      for (i in dic) {
+        while (decimal >= dic[i]) {
+          roman += i;
+          decimal -= dic[i];
+        }
+      }
+      return roman;
+    };this.state = { input: '' };}
+
+  render() {
+    return (
+      _react2.default.createElement('div', { className: 'col', __source: { fileName: _jsxFileName, lineNumber: 34 }, __self: this },
+        _react2.default.createElement('input', { type: 'text', onChange: this.handleInput, value: this.state.input, className: 'form-control', maxLength: '15', placeholder: 'Enter decimal here', __source: { fileName: _jsxFileName, lineNumber: 35 }, __self: this }),
+        _react2.default.createElement('h4', { __source: { fileName: _jsxFileName, lineNumber: 36 }, __self: this }, 'Roman Numeral Equivalent: '),
+        _react2.default.createElement('div', { className: 'scrollable', __source: { fileName: _jsxFileName, lineNumber: 37 }, __self: this }, _react2.default.createElement('h2', { __source: { fileName: _jsxFileName, lineNumber: 37 }, __self: this }, _react2.default.createElement('p', { className: 'breakable', __source: { fileName: _jsxFileName, lineNumber: 37 }, __self: this }, this.toRoman(this.state.input))))));
+
+
+  }}exports.DecimalToRoman = DecimalToRoman;
+
+
+class RomanToDecimal extends _react2.default.Component {
+  constructor(props) {
+    super(props);this.
+
+
+
+    handleInput = x => {
+      this.setState({ input: x.target.value });
+    };this.
+
+    toDecimal = numeral => {
+      var dic = { M: 1000, D: 500, C: 100, L: 50, X: 10, V: 5, I: 1 };
+      //var dic = {1000:M,900:CM,500:D,400:CD,100:C,90:XC,50:L,40:XL,10:X,9:XI,5:V,4:VI,1:I};
+      var result = '';
+      var i = '';
+      var j = '';
+      for (var j = 0; j < numeral.length; j++) {
+        var currentLetter = numeral.charAt(j);
+        var nextLetter = numeral.charAt(j + 1);
+        var neg = false;
+        if (dic[currentLetter] < dic[nextLetter]) {
+          neg = true;
+        }
+        for (i in dic) {
+          if (currentLetter == i) {
+            result = neg ? +result - +dic[i] : +result + +dic[i];
+          }
+        }
+      }
+      return result;
+    };this.state = { input: '' };}
+
+  render() {
+    return (
+      _react2.default.createElement('div', { className: 'col', __source: { fileName: _jsxFileName, lineNumber: 77 }, __self: this },
+        _react2.default.createElement('input', { type: 'text', onChange: this.handleInput, value: this.state.input, className: 'form-control', maxLength: '15', placeholder: 'Enter roman numeral here', __source: { fileName: _jsxFileName, lineNumber: 78 }, __self: this }),
+        _react2.default.createElement('h4', { __source: { fileName: _jsxFileName, lineNumber: 79 }, __self: this }, 'Arabic Decimal Equivalent: '),
+        _react2.default.createElement('div', { className: 'scrollable', __source: { fileName: _jsxFileName, lineNumber: 80 }, __self: this }, _react2.default.createElement('h2', { __source: { fileName: _jsxFileName, lineNumber: 80 }, __self: this }, _react2.default.createElement('p', { className: 'breakable', __source: { fileName: _jsxFileName, lineNumber: 80 }, __self: this }, this.toDecimal(this.state.input))))));
+
+
+  }}exports.RomanToDecimal = RomanToDecimal;
+
+
+
+class App extends _react2.default.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return _react2.default.createElement('div', { className: 'container', __source: { fileName: _jsxFileName, lineNumber: 92 }, __self: this },
+      _react2.default.createElement('div', { className: 'jumbotron', __source: { fileName: _jsxFileName, lineNumber: 93 }, __self: this },
+        _react2.default.createElement('h3', { className: 'display-3', __source: { fileName: _jsxFileName, lineNumber: 94 }, __self: this }, 'Roman Numeral Conversion ', _react2.default.createElement('br', { __source: { fileName: _jsxFileName, lineNumber: 94 }, __self: this }),
+          _react2.default.createElement('small', { __source: { fileName: _jsxFileName, lineNumber: 95 }, __self: this }, 'With ReactJS and Bootstrap')),
+
+
+        _react2.default.createElement('div', { className: 'row', __source: { fileName: _jsxFileName, lineNumber: 98 }, __self: this },
+          this.props.children)));
+
+
+
+
+  }}exports.default =
+
+
+App;

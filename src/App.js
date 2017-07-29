@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './'
 import ReactDOM from 'react-dom';
 
 export class DecimalToRoman extends Component{
@@ -31,9 +32,9 @@ export class DecimalToRoman extends Component{
   render(){
     return(
       <div className='col'>
-        <input type='text' onChange={this.handleInput} value={this.state.input}  className='form-control' maxLength='5' placeholder='Enter decimal here' />
-          <p>Roman Numeral</p>
-          <div className='scrollable'><p className='breakable'>{this.toRoman(this.state.input)}</p></div>
+        <input type='text' onChange={this.handleInput} value={this.state.input}  className='form-control' maxLength='15' placeholder='Enter decimal here' />
+          <h4>Roman Numeral Equivalent: </h4>
+          <div className='scrollable'><h2><p className='breakable'>{this.toRoman(this.state.input)}</p></h2></div>
       </div>
       );
   }
@@ -64,7 +65,7 @@ export class RomanToDecimal extends React.Component{
       }
       for(i in dic){
         if(currentLetter == i){
-          result = neg ? result-dic[i] : result+dic[i];
+          result = neg ? (+result)-(+dic[i]) : (+result)+(+dic[i]);
         }
       }
     }
@@ -74,9 +75,9 @@ export class RomanToDecimal extends React.Component{
   render(){
     return(
         <div className='col'>
-        <input type='text' onChange={this.handleInput} value={this.state.input}  className='form-control' maxLength='5' placeholder='Enter roman numeral here' />
-          <h2>Arabic Decimal</h2>
-          <h1>{this.toDecimal(this.state.input)}</h1>
+        <input type='text' onChange={this.handleInput} value={this.state.input}  className='form-control' maxLength='15' placeholder='Enter roman numeral here' />
+          <h4>Arabic Decimal Equivalent: </h4>
+          <div className='scrollable'><h2><p className='breakable'>{this.toDecimal(this.state.input)}</p></h2></div>
       </div>
       );
   }
