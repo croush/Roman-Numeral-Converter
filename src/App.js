@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import './'
-import ReactDOM from 'react-dom';
 
 export class DecimalToRoman extends Component{
   constructor(props){
