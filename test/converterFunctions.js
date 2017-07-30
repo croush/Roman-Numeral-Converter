@@ -17,6 +17,7 @@ var toDecimal = (numeral) => {
     var result = '';
     var i = '';
     var j = '';
+
     for(var j=0;j<numeral.length;j++){
       var currentLetter = numeral.charAt(j);
       var nextLetter = numeral.charAt(j+1);
@@ -32,6 +33,9 @@ var toDecimal = (numeral) => {
     }
     return(result);
   };
+
+
+
 
 exports.toRoman = toRoman;
 exports.toDecimal = toDecimal;

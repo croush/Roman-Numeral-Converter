@@ -60,4 +60,9 @@ describe("Roman Numeral/Arabic Decimal Converter", function() {
       expect(fifteenHundreed).to.equal('MD');
     });
   });
+
+  describe("User input is correctly handled per the rules", function(){
+      var iFour = converter.toDecimal('IIII');
+      expect(iFour).to.equal('Incorrect input');
+  });
 });
