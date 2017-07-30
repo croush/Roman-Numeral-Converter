@@ -10,3 +10,6 @@ Testing was important in the development of this simple app. It was most useful 
 * There is a potential hang-up problem when the user input is very long. Chrome asks to kill the app when this happens. 
 * Aesthetics
 * Further testing of edge cases.
+* Validation for user input is not implemented, so the rules below are not observed in the toDecimal function. That is, a user can enter *IIII*, which violates the rules below, but is still converted to *4* by toDecimal.
+
+>The symbols 'I', 'X', 'C', and 'M' can be repeated at most 3 times in a row. The symbols 'V', 'L', and 'D' can never be repeated. The '1' symbols ('I', 'X', and 'C') can only be subtracted from the 2 next highest values ('IV' and 'IX', 'XL' and 'XC', 'CD' and 'CM'). Only one subtraction can be made per numeral ('XC' is allowed, 'XXC' is not). The '5' symbols ('V', 'L', and 'D') can never be subtracted.
