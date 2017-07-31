@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import './'
+import {isNumeralValid} from './checkInputValidity';
 
 export class DecimalToRoman extends Component{
   constructor(props){
@@ -15,7 +16,6 @@ export class DecimalToRoman extends Component{
   }
   
   toRoman = (decimal) => {
-  debugger;
     var dic ={M:1000,CM:900,D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1};
     var i='';
     var roman = '';
@@ -50,6 +50,9 @@ export class RomanToDecimal extends React.Component{
   }
   
   toDecimal = (numeral) => {
+    if(!isNumeralValid(numeral)){
+      return('Invalid input');
+    }
     var dic ={M:1000,D:500,C:100,L:50,X:10,V:5,I:1};
     //var dic = {1000:M,900:CM,500:D,400:CD,100:C,90:XC,50:L,40:XL,10:X,9:XI,5:V,4:VI,1:I};
     var result = '';
